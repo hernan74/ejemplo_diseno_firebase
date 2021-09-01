@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
           children: [
             FondoLoginWidget(),
             Container(
-              height: size.height * 0.3,
+              height: size.height * 0.45,
               child: Column(
                 children: [
                   _Titulo(anchoMaximo: size.width * 0.9),
@@ -40,13 +40,14 @@ class _Titulo extends StatelessWidget {
   const _Titulo({required this.anchoMaximo});
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
       width: anchoMaximo * 95 / 100,
       alignment: Alignment.centerRight,
       child: Text(
         'Ingresar',
         style: TextStyle(
-          fontSize: 40,
+          fontSize: size.height * 0.05,
           color: Colors.pink,
         ),
       ),
@@ -66,7 +67,7 @@ class _Formulario extends StatelessWidget {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       child: Container(
         width: size.width * 0.85,
-        height: 200,
+        height: size.height * 0.35,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -79,7 +80,7 @@ class _Formulario extends StatelessWidget {
                 iconoIzquida: true,
                 colorGradienteIconoInicio: colorPrimarioUno,
                 colorGradienteIconoFin: Color(0xffE79E33),
-                alto: 45,
+                alto: size.height * 0.07,
                 icono: Icons.email,
                 hindText: 'Email'),
             TextfieldWidget(
@@ -92,14 +93,14 @@ class _Formulario extends StatelessWidget {
               textInputType: TextInputType.visiblePassword,
               colorGradienteIconoInicio: colorPrimarioDos,
               colorGradienteIconoFin: Color(0xffDE596C),
-              alto: 45,
+              alto: size.height * 0.07,
               icono: Icons.lock,
               hindText: 'Contraseña',
             ),
             ButtonWidget(
                 widget: Text('Ingresar'),
                 ancho: size.width * 0.6,
-                alto: size.height * 0.05,
+                alto: size.height * 0.06,
                 utilizaGradiente: true,
                 colorGradienteInicio:
                     loginForm.isLoading ? Colors.blueGrey : colorPrimarioUno,
